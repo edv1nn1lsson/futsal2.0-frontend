@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>futsal</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <div class="container my-4">
+      <h1 class="text-center">futsal - laggenerator</h1>
+      <hr />
+      <div class="row">
+        <div class="col-md-4">
+          <h4>Spelare</h4>
+          <div class="card">
+            <div class="card-body">
+              <div id="player-list" class="row"></div>
+            </div>
+            <div class="text-center">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="select-all"
+                />
+                <label class="form-check-label" for="select-all"
+                  >Välj alla</label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-4">
+            <button id="clear-selection-button" class="btn btn-danger me-2">
+              Rensa
+            </button>
+            <button id="generate-teams-button" class="btn btn-green ms-2">
+              Skapa lag
+            </button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h4>Lagindelning</h4>
+          <div id="team-list" class="row"></div>
+        </div>
+        <div class="col-md-4">
+          <img
+            src="images\jorgen-hendriksen-8yLDFM3P9Cs-unsplash.jpg"
+            alt="Futsal hall"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div id="overlay" class="overlay" style="display: none">
+      <img id="loading-gif" alt="Loading..." />
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

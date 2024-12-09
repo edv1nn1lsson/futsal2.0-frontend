@@ -1,0 +1,67 @@
+.custom-alert {
+  display: inline-block;
+  width: auto;
+}
+input[type="checkbox"]:checked {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+input[type="checkbox"]:focus {
+  outline: 2px #28a745;
+  border: #28a745;
+  box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.overlay img {
+  transform: scale(2);
+}
+.btn-green {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: white;
+}
+.btn-green:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+  color: white;
+}
+.btn-green:focus {
+  outline: 2px #28a745;
+  box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+}
+#select-all {
+  margin-bottom: 1rem;
+}
+.card ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+/* Hantera spelare */
+
+.player-item {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #ddd;
+}
+.player-name {
+  flex-grow: 1;
+}
+.player-list-container {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: #fff;
+}
