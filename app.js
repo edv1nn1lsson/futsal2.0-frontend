@@ -18,6 +18,41 @@ document.addEventListener("DOMContentLoaded", function () {
     "images/kick-soccer.gif",
   ];
 
+  const usePredefinedTeams = false; // Ändra till true för att använda hårdkodade lag
+
+  const predefinedTeams = [
+    {
+      name: "Lag svart",
+      players: [
+        { name: "Albin" },
+        { name: "Jocke E" },
+        { name: "Johan M" },
+        { name: "Michael A" },
+        { name: "Mikael E" },
+      ],
+    },
+    {
+      name: "Lag vit",
+      players: [
+        { name: "Edvin" },
+        { name: "Mattias P" },
+        { name: "Oliver" },
+        { name: "Per" },
+        { name: "Pontus" },
+      ],
+    },
+    {
+      name: "Lag blå",
+      players: [
+        { name: "Richard" },
+        { name: "Robin" },
+        { name: "Tommy" },
+        { name: "Victor" },
+        { name: "Spelare X" },
+      ],
+    },
+  ];
+
   // Hämta spelare från endpoint
   function fetchPlayers() {
     axios
@@ -25,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((response) => {
         const players = response.data;
         renderPlayers(players);
-        resetCheckboxes(); // Återställ checkboxar när spelare har renderats
       })
       .catch((error) => {
         console.error("Error fetching players:", error);
@@ -91,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
       playerListContainer.querySelectorAll('input[type="checkbox"]:checked')
     ).map((cb) => Number(cb.value));
 
-    if (selectedPlayerIds.length === 0) {
+    if (selectedPlayerIds.length === 0 && !usePredefinedTeams) {
       renderErrorMessage("Inga spelare valda.");
       return;
     }
@@ -102,19 +136,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     teamListContainer.innerHTML = "";
 
-    axios
-      .post("http://localhost:8080/teams", selectedPlayerIds)
-      .then((response) => {
-        const teams = response.data;
+    if (usePredefinedTeams) {
+      // Använd hårdkodade lag
+      setTimeout(() => {
+        overlay.style.display = "none";
+        renderTeams(predefinedTeams);
+      }, 3500);
+    } else {
+      // Använd backend för laggenerering
+      axios
+        .post("http://localhost:8080/teams", selectedPlayerIds)
+        .then((response) => {
+          const teams = response.data;
 
-        setTimeout(() => {
-          overlay.style.display = "none";
-          renderTeams(teams);
-        }, 3500);
-      })
-      .catch((error) => {
-        console.error("Error generating teams:", error);
-      });
+          setTimeout(() => {
+            overlay.style.display = "none";
+            renderTeams(teams);
+          }, 3500);
+        })
+        .catch((error) => {
+          console.error("Error generating teams:", error);
+        });
+    }
   });
 
   // Välj alla checkboxar
@@ -127,23 +170,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Återställ alla checkboxar när sidan laddas om
-  function resetCheckboxes() {
-    const checkboxes = playerListContainer.querySelectorAll(
-      'input[type="checkbox"]'
-    );
-    // Återställ alla checkboxar till avmarkerat läge
-    checkboxes.forEach((checkbox) => {
-      checkbox.checked = false;
-    });
-    // Återställ "Välj alla" checkboxen till avmarkerat läge
-    selectAllCheckbox.checked = false;
-  }
-
   // Visa lag
   function renderTeams(teams) {
     teamListContainer.innerHTML = "";
-    for (let [teamName, players] of Object.entries(teams)) {
+    teams.forEach((team) => {
       const teamCard = document.createElement("div");
       teamCard.className = "col-md-6 mb-3";
 
@@ -155,11 +185,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const cardTitle = document.createElement("h5");
       cardTitle.className = "card-title";
-      cardTitle.textContent = teamName;
+      cardTitle.textContent = team.name;
 
       const playerList = document.createElement("ul");
       playerList.className = "list-unstyled";
-      players.forEach((player) => {
+      team.players.forEach((player) => {
         const playerItem = document.createElement("li");
         playerItem.textContent = player.name;
         playerList.appendChild(playerItem);
@@ -170,9 +200,10 @@ document.addEventListener("DOMContentLoaded", function () {
       card.appendChild(cardBody);
       teamCard.appendChild(card);
       teamListContainer.appendChild(teamCard);
-    }
+    });
   }
 
+  // Återställ alla checkboxar
   clearSelectionButton.addEventListener("click", function () {
     const checkboxes = playerListContainer.querySelectorAll(
       'input[type="checkbox"]'
