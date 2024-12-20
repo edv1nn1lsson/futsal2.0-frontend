@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     axios
       .get("http://localhost:8080/players")
       .then((response) => {
-        const players = response.data;
+        players = response.data;
         renderPlayers(players);
       })
       .catch((error) => {
@@ -130,6 +130,11 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    // Hämta hela spelarobjektet baserat på de valda ID:na
+    const selectedPlayers = selectedPlayerIds.map((id) => {
+      return players.find((player) => player.id === id);
+    });
+
     const randomGif = gifImages[Math.floor(Math.random() * gifImages.length)];
     overlayImage.src = randomGif;
     overlay.style.display = "flex";
@@ -145,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       // Använd backend för laggenerering
       axios
-        .post("http://localhost:8080/teams", selectedPlayerIds)
+        .post("http://localhost:8080/teams", selectedPlayers)
         .then((response) => {
           const teams = response.data;
 
