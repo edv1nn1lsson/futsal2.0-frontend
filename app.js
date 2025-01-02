@@ -18,37 +18,28 @@ document.addEventListener("DOMContentLoaded", function () {
     "images/kick-soccer.gif",
   ];
 
-  const usePredefinedTeams = false; // Ändra till true för att använda hårdkodade lag
+  const usePredefinedTeams = true; // Ändra till true för att använda hårdkodade lag
 
   const predefinedTeams = [
     {
       name: "Lag svart",
       players: [
-        { name: "Joakim E" },
-        { name: "Albin" },
-        { name: "Henry" },
-        { name: "Per" },
-        { name: "Oliver" },
+        { name: "Richard" },
+        { name: "Adam" },
+        { name: "Edvin" },
+        { name: "Eliaz" },
+        { name: "Johan M" },
+        { name: "Victor H" },
       ],
     },
     {
       name: "Lag vit",
       players: [
-        { name: "Tommy" },
-        { name: "Michael A" },
-        { name: "Edvin" },
-        { name: "Victor H" },
-        { name: "Mattias P" },
-      ],
-    },
-    {
-      name: "Lag Bestäm-färg-själva",
-      players: [
-        { name: "Richard" },
+        { name: "Henry" },
+        { name: "Philip" },
         { name: "Robin" },
-        { name: "Victor W" },
-        { name: "Johan M" },
-        { name: "Pontus" },
+        { name: "Mathias E" },
+        { name: "Johan S" },
       ],
     },
   ];
