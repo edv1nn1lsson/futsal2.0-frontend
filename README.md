@@ -12,7 +12,7 @@ En webbapplikation för att generera futsallag. Användaren kan välja vilka spe
 
 #### index.html
 
-HTML-struktur för applikationen. Innehåller layouten för spelare, lagindelning och en bild.
+HTML-struktur för applikationen. Innehåller layouten för spelarlistan, lagindelning och bilder.
 
 #### app.js
 
