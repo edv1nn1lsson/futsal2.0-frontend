@@ -1,4 +1,4 @@
-![futsal logo](images\logo.png)
+![futsal logo](images/logo.png)
 
 En webbapplikation för att generera futsallag. Användaren kan välja vilka spelare som ska ingå i lagindelningen från listan. Utifrån de valda spelarna skapas balanserade lag med hjälp av backend-tjänster.
 
