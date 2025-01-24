@@ -24,31 +24,22 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       name: "Lag svart",
       players: [
-        { name: "Philip" },
+        { name: "Richard" },
         { name: "Adam" },
-        { name: "Tommy" },
-        { name: "Michael A" },
-        { name: "Andreas" },
+        { name: "Robin" },
+        { name: "Oliver" },
+        { name: "+1 svart" },
       ],
     },
     {
       name: "Lag vit",
       players: [
         { name: "Henry" },
-        { name: "Richard" },
-        { name: "Edvin" },
-        { name: "Oliver" },
-        { name: "Johan S" },
-      ],
-    },
-    {
-      name: "Lag bestäm-färg-själv",
-      players: [
-        { name: "Johan M" },
-        { name: "Albin" },
         { name: "Pontus" },
-        { name: "Robin" },
-        { name: "Eliaz" },
+        { name: "Edvin" },
+        { name: "Michael A" },
+        { name: "Johan S" },
+        { name: "Victor H" },
       ],
     },
   ];
