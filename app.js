@@ -24,23 +24,23 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       name: "Lag svart",
       players: [
+        { name: "Philip" },
+        { name: "Tommy" },
         { name: "Richard" },
-        { name: "Adam" },
-        { name: "Robin" },
-        { name: "Pontus" },
-        { name: "Mikael E" },
+        { name: "Andreas" },
+        { name: "Eliaz" },
         { name: "Johan M" },
       ],
     },
     {
       name: "Lag vit",
       players: [
-        { name: "Joakim E" },
-        { name: "Philip" },
-        { name: "Edvin" },
-        { name: "Michael A" },
         { name: "Henry" },
+        { name: "Edvin" },
+        { name: "Johan S" },
+        { name: "Pontus" },
         { name: "Victor H" },
+        { name: "Albin" },
       ],
     },
   ];
