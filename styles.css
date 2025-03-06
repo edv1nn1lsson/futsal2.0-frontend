@@ -28,6 +28,9 @@ input[type="checkbox"]:focus {
 }
 @media (max-width: 768px) {
   .overlay img {
+    transform: scale(1.6);
+  }
+  .logo img {
     max-width: 80%;
   }
 }
