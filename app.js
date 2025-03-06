@@ -66,9 +66,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const secondHalf = players.slice(half);
 
     const col1 = document.createElement("div");
-    col1.className = "col-md-6";
+    col1.className = "col-6";
     const col2 = document.createElement("div");
-    col2.className = "col-md-6";
+    col2.className = "col-6";
 
     firstHalf.forEach((player) => {
       const playerDiv = document.createElement("div");
@@ -180,11 +180,11 @@ document.addEventListener("DOMContentLoaded", function () {
       cardBody.className = "card-body";
 
       const cardTitle = document.createElement("h5");
-      cardTitle.className = "card-title";
+      cardTitle.className = "card-title text-center text-md-start";
       cardTitle.textContent = team.name;
 
       const playerList = document.createElement("ul");
-      playerList.className = "list-unstyled";
+      playerList.className = "list-unstyled text-center text-md-start";
       team.players.forEach((player) => {
         const playerItem = document.createElement("li");
         playerItem.textContent = player.name;
