@@ -26,9 +26,9 @@ input[type="checkbox"]:focus {
 .overlay img {
   transform: scale(2);
 }
-@media (max-width: 768px) { /* Lägg till regler för mobilläge */
+@media (max-width: 768px) {
   .overlay img {
-    max-width: 90%; /* Gör bilden mindre i mobilläge */
+    max-width: 80%;
   }
 }
 .btn-green {
