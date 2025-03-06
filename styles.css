@@ -26,6 +26,11 @@ input[type="checkbox"]:focus {
 .overlay img {
   transform: scale(2);
 }
+@media (max-width: 768px) { /* Lägg till regler för mobilläge */
+  .overlay img {
+    max-width: 90%; /* Gör bilden mindre i mobilläge */
+  }
+}
 .btn-green {
   background-color: #28a745;
   border-color: #28a745;
@@ -49,7 +54,6 @@ input[type="checkbox"]:focus {
 }
 
 /* Hantera spelare */
-
 .player-item {
   display: flex;
   align-items: center;
