@@ -1,6 +1,18 @@
 .custom-alert {
-  display: inline-block;
-  width: auto;
+  display: block;
+  width: 100%;
+}
+/* Centrera text i mobilläge */
+@media (max-width: 767px) {
+  .custom-alert {
+    text-align: center;
+  }
+}
+/* Vänsterställ text på desktop */
+@media (min-width: 768px) {
+  .custom-alert {
+    text-align: left;
+  }
 }
 input[type="checkbox"]:checked {
   background-color: #28a745;
