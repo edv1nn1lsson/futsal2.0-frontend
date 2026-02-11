@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const teamListContainer = document.getElementById("team-list");
   const generateTeamsButton = document.getElementById("generate-teams-button");
   const clearSelectionButton = document.getElementById(
-    "clear-selection-button"
+    "clear-selection-button",
   );
   const selectAllCheckbox = document.getElementById("select-all");
   const overlay = document.getElementById("overlay");
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "images/kick-soccer.gif",
   ];
 
-  const usePredefinedTeams = true; // Ändra till true för att använda hårdkodade lag
+  const usePredefinedTeams = false; // Ändra till true för att använda hårdkodade lag
 
   const predefinedTeams = [
     {
@@ -43,10 +43,15 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   ];
 
+  const API_BASE_URL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:8080"
+      : "https://futsal2-0-backend.onrender.com";
+
   // Hämta spelare från endpoint
   function fetchPlayers() {
     axios
-      .get("http://localhost:8080/players")
+      .get(`${API_BASE_URL}/players`)
       .then((response) => {
         players = response.data;
         renderPlayers(players);
@@ -112,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Skapa lag
   generateTeamsButton.addEventListener("click", function () {
     const selectedPlayerIds = Array.from(
-      playerListContainer.querySelectorAll('input[type="checkbox"]:checked')
+      playerListContainer.querySelectorAll('input[type="checkbox"]:checked'),
     ).map((cb) => Number(cb.value));
 
     if (selectedPlayerIds.length === 0 && !usePredefinedTeams) {
@@ -140,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       // Använd backend för laggenerering
       axios
-        .post("http://localhost:8080/teams", selectedPlayers)
+        .post(`${API_BASE_URL}/teams`, selectedPlayers)
         .then((response) => {
           const teams = response.data;
 
@@ -158,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Välj alla checkboxar
   selectAllCheckbox.addEventListener("change", function () {
     const checkboxes = playerListContainer.querySelectorAll(
-      'input[type="checkbox"]'
+      'input[type="checkbox"]',
     );
     checkboxes.forEach((checkbox) => {
       checkbox.checked = selectAllCheckbox.checked;
@@ -201,7 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Återställ alla checkboxar
   clearSelectionButton.addEventListener("click", function () {
     const checkboxes = playerListContainer.querySelectorAll(
-      'input[type="checkbox"]'
+      'input[type="checkbox"]',
     );
     checkboxes.forEach((checkbox) => {
       checkbox.checked = false;
