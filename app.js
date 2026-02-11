@@ -43,15 +43,10 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   ];
 
-  const API_BASE_URL =
-    window.location.hostname === "localhost"
-      ? "http://localhost:8080"
-      : "https://futsal2-0-backend.onrender.com";
-
   // Hämta spelare från endpoint
   function fetchPlayers() {
     axios
-      .get(`${API_BASE_URL}/players`)
+      .get("https://futsal2-0-backend.onrender.com/players")
       .then((response) => {
         players = response.data;
         renderPlayers(players);
@@ -145,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       // Använd backend för laggenerering
       axios
-        .post(`${API_BASE_URL}/teams`, selectedPlayers)
+        .post("https://futsal2-0-backend.onrender.com/teams", selectedPlayers)
         .then((response) => {
           const teams = response.data;
 
