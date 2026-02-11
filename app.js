@@ -214,7 +214,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function renderErrorMessage(message) {
     teamListContainer.innerHTML = "";
     const errorDiv = document.createElement("div");
-    errorDiv.className = "alert alert-danger custom-alert";
+    errorDiv.className =
+      "alert alert-danger custom-alert text-center text-md-start";
     errorDiv.textContent = message;
     teamListContainer.appendChild(errorDiv);
   }
