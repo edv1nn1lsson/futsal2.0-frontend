@@ -1,17 +1,17 @@
 .custom-alert {
   display: block;
-  width: 100%;
+  width: auto;
 }
-/* Centrera text i mobilläge */
-@media (max-width: 767px) {
-  .custom-alert {
-    text-align: center;
-  }
-}
-/* Vänsterställ text på desktop */
+/* Vänsterställ felmeddelande på desktop */
 @media (min-width: 768px) {
   .custom-alert {
     text-align: left;
+  }
+}
+/* Centrera felmeddelande i mobilläge */
+@media (max-width: 767px) {
+  .custom-alert {
+    text-align: center;
   }
 }
 input[type="checkbox"]:checked {
