@@ -1,5 +1,5 @@
 .custom-alert {
-  display: block;
+  display: inline-block;
   width: auto;
 }
 /* Vänsterställ felmeddelande på desktop */
@@ -11,6 +11,8 @@
 /* Centrera felmeddelande i mobilläge */
 @media (max-width: 767px) {
   .custom-alert {
+    display: block;
+    margin: 0 auto;
     text-align: center;
   }
 }
