@@ -86,3 +86,27 @@ input[type="checkbox"]:focus {
   padding: 1rem;
   background-color: #fff;
 }
+
+@media (max-width: 767px) {
+  #team-section.is-hidden-mobile {
+    display: none;
+  }
+  #team-section {
+    padding-bottom: 0 !important;
+  }
+}
+
+/* Footer */
+.app-footer {
+  color: #6c757d;
+  font-size: 0.875rem;
+  line-height: 1.25;
+}
+.app-footer a {
+  color: #28a745;
+  text-decoration: none;
+}
+.app-footer a:hover,
+.app-footer a:focus {
+  text-decoration: underline;
+}

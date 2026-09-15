@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const playerListContainer = document.getElementById("player-list");
   const teamListContainer = document.getElementById("team-list");
+  const teamSection = document.getElementById("team-section");
   const generateTeamsButton = document.getElementById("generate-teams-button");
   const clearSelectionButton = document.getElementById(
     "clear-selection-button",
@@ -175,6 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Visa lag
   function renderTeams(teams) {
     teamListContainer.innerHTML = "";
+    teamSection.classList.remove("is-hidden-mobile");
     teams.forEach((team) => {
       const teamCard = document.createElement("div");
       teamCard.className = "col-md-6 mb-3";
@@ -215,6 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     selectAllCheckbox.checked = false;
     teamListContainer.innerHTML = "";
+    teamSection.classList.add("is-hidden-mobile");
   });
 
   // Felmeddelande
@@ -227,4 +230,5 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   fetchPlayers();
+  teamSection.classList.add("is-hidden-mobile");
 });

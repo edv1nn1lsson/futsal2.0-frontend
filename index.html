@@ -14,7 +14,7 @@
     <script defer src="app.js"></script>
   </head>
   <body>
-    <div class="container my-4">
+    <div class="container mt-4 mb-0 mb-md-4">
       <div class="logo text-center">
         <img src="images/logo.png" alt="futsal logo" width="400" />
       </div>
@@ -48,19 +48,36 @@
             </button>
           </div>
         </div>
-        <div class="col-12 col-md-4 px-3 pb-3">
+        <div id="team-section" class="col-12 col-md-4 px-3 pb-3">
           <h4 class="text-center text-md-start">Lagindelning</h4>
           <div id="team-list" class="row"></div>
         </div>
-        <div class="col-12 col-md-4 px-3 pb-3">
+        <div
+          id="picture-section"
+          class="col-12 col-md-4 px-3 pb-3 d-none d-md-block"
+        >
           <img
             src="images/jorgen-hendriksen-8yLDFM3P9Cs-unsplash.jpg"
             alt="Futsal hall"
-            class="img-fluid d-none d-md-block"
+            class="img-fluid"
           />
         </div>
       </div>
     </div>
+
+    <footer class="app-footer text-center py-1">
+      <div class="container">
+        <p class="mb-0">
+          edv1nn1lsson |
+          <a
+            href="https://github.com/edv1nn1lsson"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+        </p>
+      </div>
+    </footer>
 
     <div id="overlay" class="overlay" style="display: none">
       <img id="loading-gif" alt="Loading..." />
