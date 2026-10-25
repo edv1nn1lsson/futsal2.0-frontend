@@ -1,3 +1,78 @@
+/* Logotyp */
+@media (max-width: 768px) {
+  .logo img {
+    max-width: 80%;
+  }
+}
+
+/* Spelarlista */
+#select-all {
+  margin-bottom: 1rem;
+}
+/* Långa namn ska radbrytas i stället för att sticka ut ur kolumnen */
+#player-list .form-check {
+  overflow-wrap: anywhere;
+}
+#player-list .form-check-label {
+  min-width: 0;
+}
+/* Krysset för tillfälliga spelare ska alltid synas, även vid långa namn */
+#player-list .form-check .btn-link {
+  flex-shrink: 0;
+}
+
+/* Formulärelement (grön accentfärg på checkboxar och radioknappar) */
+.form-check-input {
+  border-color: rgba(0, 0, 0, 0.25);
+}
+input[type="checkbox"]:checked {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+input[type="checkbox"]:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+}
+input[type="radio"]:checked {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+input[type="radio"]:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+}
+
+/* Grön knapp (Skapa lag, m.fl.) */
+.btn-green {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: white;
+}
+.btn-green:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+  color: white;
+}
+.btn-green:focus {
+  box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+}
+
+/* Lagindelning */
+.card ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+/* Dölj lagsektionen på mobil tills lag har skapats */
+@media (max-width: 767px) {
+  #team-section.is-hidden-mobile {
+    display: none;
+  }
+  #team-section {
+    padding-bottom: 0 !important;
+  }
+}
+
+/* Felmeddelande */
 .custom-alert {
   display: inline-block;
   width: auto;
@@ -14,17 +89,11 @@
     display: block;
     margin: 0 auto;
     text-align: center;
+    margin-bottom: 0.5rem;
   }
 }
-input[type="checkbox"]:checked {
-  background-color: #28a745;
-  border-color: #28a745;
-}
-input[type="checkbox"]:focus {
-  outline: 2px #28a745;
-  border: #28a745;
-  box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
-}
+
+/* Laddningsoverlay (gif som visas när lag skapas) */
 .overlay {
   position: fixed;
   top: 0;
@@ -43,56 +112,6 @@ input[type="checkbox"]:focus {
 @media (max-width: 768px) {
   .overlay img {
     transform: scale(1.6);
-  }
-  .logo img {
-    max-width: 80%;
-  }
-}
-.btn-green {
-  background-color: #28a745;
-  border-color: #28a745;
-  color: white;
-}
-.btn-green:hover {
-  background-color: #218838;
-  border-color: #1e7e34;
-  color: white;
-}
-.btn-green:focus {
-  outline: 2px #28a745;
-  box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
-}
-#select-all {
-  margin-bottom: 1rem;
-}
-.card ul {
-  padding-left: 0;
-  margin-bottom: 0;
-}
-
-/* Hantera spelare */
-.player-item {
-  display: flex;
-  align-items: center;
-  padding: 0.25rem 0;
-  border-bottom: 1px solid #ddd;
-}
-.player-name {
-  flex-grow: 1;
-}
-.player-list-container {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 1rem;
-  background-color: #fff;
-}
-
-@media (max-width: 767px) {
-  #team-section.is-hidden-mobile {
-    display: none;
-  }
-  #team-section {
-    padding-bottom: 0 !important;
   }
 }
 

@@ -1,29 +1,33 @@
 <p align="center"> <img src="images/logo.png" alt="futsal logo" width="400"/> </p>
 
-En webbapplikation för att generera futsallag. Användaren kan välja vilka spelare som ska ingå i lagindelningen från listan. Utifrån de valda spelarna skapas balanserade lag med hjälp av backend-tjänster.
+En webbapplikation som delar upp spelare i jämna futsallag. Välj vilka som är på plats, tryck på **Skapa lag** och få en lagindelning som tar hänsyn till både position och skicklighet. Laggenereringen sker i en separat backend byggd med Quarkus (Java).
 
-## Användning
+**🌐 Testa appen:** [edv1nn1lsson.github.io/futsal2.0-frontend](https://edv1nn1lsson.github.io/futsal2.0-frontend/)
 
-- **Välj spelare:** Markera de spelare som ska inkluderas i lagindelningen.
-- **Rensa val:** Klicka på "Rensa"-knappen för att avmarkera alla spelare.
-- **Skapa lag:** Klicka på "Skapa lag"-knappen för att generera lag.
+> Backend körs på Render. Om tjänsten har legat oanvänd en stund kan det ta en liten stund innan första anropet svarar.
 
-## Filer
+## Funktioner
 
-#### index.html
+- **Välj spelare** från en lista i bokstavsordning, eller markera alla på en gång.
+- **Lägg till tillfälliga spelare** (gäster) med namn, skill och position. De sorteras in i listan bland de ordinarie spelarna och finns bara kvar tills sidan laddas om.
+- **Skapa lag:** två, tre eller fyra lag beroende på antalet spelare, med så jämn fördelning av position och skicklighet som möjligt.
+- **Responsiv design** som fungerar på både mobil och dator.
 
-HTML-struktur för applikationen. Innehåller layouten för spelarlistan, lagindelning och bilder.
+## Teknik
 
-#### app.js
+- HTML, CSS och JavaScript (ingen byggprocess)
+- [Bootstrap 5](https://getbootstrap.com/) för layout, komponenter och overlay
+- [Axios](https://axios-http.com/) för anrop till backend
+- Hostas på GitHub Pages
 
-JavaScript-logik för att hämta spelare, rendera spelare och lag, hantera användarinteraktioner, och göra anrop till backend-tjänster.
+## Projektstruktur
 
-- Hämta spelare: Hämtar spelare från backend-endpointen.
-- Rendera spelare: Visar spelarna som en lista med checkboxar.
-- Skapa lag: Genererar lag baserat på valda spelare och anropar backend-tjänster.
-- Visa/dölj overlay: Visar en overlay med en laddningsanimering under laggenerering.
-- Rendera lag: Visar de genererade lagen på sidan.
-- Event-hanterare: Hanterar användarinteraktioner såsom klick på knappar och checkboxar.
+| Fil          | Innehåll                                                                                                                              |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `index.html` | Sidans struktur: spelarlista, knappar, lagindelning, formuläret för tillfällig spelare (som overlay) och laddningsoverlay.            |
+| `app.js`     | All logik: hämta och rendera spelare, lägga till och ta bort tillfälliga spelare, skapa lag via backend, visa lag och felmeddelanden. |
+| `styles.css` | Egen styling ovanpå Bootstrap: gröna accentfärger, overlay, felmeddelanden, responsiva justeringar och footer.                        |
+| `images/`    | Logotyp, favicon, bilder och animationer som visas under laggenerering.                                                               |
 
 ## Utvecklare
 
